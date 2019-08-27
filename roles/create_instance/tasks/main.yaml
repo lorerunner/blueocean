@@ -29,7 +29,7 @@
                #!/bin/sh
                sudo add-apt-repository -r ppa:fossfreedom/byzanz
                sudo apt update
-               sudo apt upgrade
+               sudo apt upgrade -Y
                sudo apt install nginx -y
               #  sudo apt-get install nginx -y
 
