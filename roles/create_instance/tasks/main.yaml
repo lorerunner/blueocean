@@ -1,0 +1,43 @@
+- name: Create the ELB only listening over port 80
+  ec2_elb_lb:
+    name: "{{ ELBNAME }}"
+    state: present
+    region: us-east-2
+    zones:
+      - us-east-2a
+      - us-east-2b
+    listeners:
+      - protocol: http
+        load_balancer_port: 80
+        instance_port: 80
+  register: elb
+
+- name: Create an EC2 instance
+      ec2:
+        key_name: Jenkins_demo
+        instance_type: t2.nano
+        image: ami-0f2176987ee50226e
+        # image: ami-0706f3855b20aacd5
+        # Note: the image id is not verified yet, it is current from the aws public
+        user_data: "{{ USERDATA }}"        
+        region: us-east-2
+        # Note: the group id is not verified yet, it is current from the IAM sg
+        group_id:
+          - sg-4291db01
+          # - sg-08849aeba5c5e3b04
+          # - sg-0af22d4c57c7bc446
+        wait: yes
+        instance_tags:
+          Name: web_server
+          application: "{{ application }}"
+        exact_count: 2            
+        count_tag: 
+          application: "{{ application }}"
+      register: ec2_instances
+
+- name: wait for the servers to come online
+  wait_for: 
+    host= "{{ item.public_dns_name }}"
+    port=80
+    timeout=180 state=started
+  with_items: "{{ ec2_instances.tagged_instances }}"

@@ -1,0 +1,14 @@
+- name: change route53
+  route53:
+      state: present
+      zone: test.com
+      record: www.test.com
+      failover: PRIMARY
+      type: CNAME
+      value: host1.foo.com
+      ttl: 30
+      # Routing policy
+      identifier: server1
+      private_zone: yes
+      overwrite: yes
+      health_check: "89f63a60-be07-465f-8ec3-c2a0b7286751"
