@@ -14,7 +14,7 @@
 
 - name: Create an EC2 instance
   ec2:
-    # key_name: Jenkins_demo
+    key_name: Jenkins_demo
     instance_type: t2.nano
     image: ami-0986c2ac728528ac2
     # image: ami-0f2176987ee50226e
@@ -24,8 +24,8 @@
     region: us-east-2
     # Note: the group id is not verified yet, it is current from the IAM sg
     # vpc_subnet_id: vpc-a85576cf
-    # group_id:
-    #   - sg-20ae185b
+    group_id:
+      - sg-7c46e111
       # - sg-08849aeba5c5e3b04
       # - sg-0af22d4c57c7bc446
     wait: yes
