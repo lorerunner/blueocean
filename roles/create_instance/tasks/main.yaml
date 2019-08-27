@@ -23,9 +23,9 @@
     # user_data: "{{ USERDATA }}"        
     region: us-east-2
     # Note: the group id is not verified yet, it is current from the IAM sg
-    vpc_subnet_id: vpc-a85576cf
-    group_id:
-      - sg-20ae185b
+    # vpc_subnet_id: vpc-a85576cf
+    # group_id:
+    #   - sg-20ae185b
       # - sg-08849aeba5c5e3b04
       # - sg-0af22d4c57c7bc446
     wait: yes
