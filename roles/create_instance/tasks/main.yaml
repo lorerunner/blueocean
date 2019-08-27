@@ -22,9 +22,17 @@
     image: ami-0986c2ac728528ac2
     # Note: the image id is not verified yet, it is current from the aws public
     # user_data: "{{ USERDATA }}"
+    # user_data: |
+    #            #!/bin/sh
+    #            sudo apt-get install nginx -y
     user_data: |
                #!/bin/sh
-               sudo apt-get install nginx -y
+               sudo add-apt-repository -r ppa:fossfreedom/byzanz
+               sudo apt update
+               sudo apt upgrade
+               sudo apt install nginx -y
+              #  sudo apt-get install nginx -y
+
     region: us-east-2
     # Note: the group id is not verified yet, it is current from the IAM sg
     # vpc_subnet_id: vpc-a85576cf
