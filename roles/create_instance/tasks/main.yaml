@@ -16,7 +16,8 @@
   ec2:
     key_name: Jenkins_demo
     instance_type: t2.nano
-    image: ami-0f2176987ee50226e
+    image: ami-0986c2ac728528ac2
+    # image: ami-0f2176987ee50226e
     # image: ami-0706f3855b20aacd5
     # Note: the image id is not verified yet, it is current from the aws public
     user_data: "{{ USERDATA }}"        
