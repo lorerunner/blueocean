@@ -1,2 +1,2 @@
 # blueocean
-Blue Green Deployment for blue branch
+Blue Green Deployment for green branch
