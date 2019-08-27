@@ -24,9 +24,9 @@
     region: us-east-2
     # Note: the group id is not verified yet, it is current from the IAM sg
     group_id:
-      - sg-4291db01
-      # - sg-08849aeba5c5e3b04
-      # - sg-0af22d4c57c7bc446
+      # - sg-4291db01
+      - sg-08849aeba5c5e3b04
+      - sg-0af22d4c57c7bc446
     wait: yes
     instance_tags:
       Name: web_server
