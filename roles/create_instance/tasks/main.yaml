@@ -51,7 +51,7 @@
 
 - name: Wait for the servers to come online
   wait_for: 
-    host= "{{ item.dns_name }}"
+    host= "{{ item.public_ip }}"
     port=80
     timeout=180 state=started
   with_items: "{{ ec2_instances.tagged_instances }}"
